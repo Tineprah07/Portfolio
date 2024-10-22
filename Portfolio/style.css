@@ -1,0 +1,459 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background-color: #f7f7f7;
+    color: #2c3e50;
+}
+
+/* Navigation Bar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 80px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background-color: #151619; /* Matches the accent color */
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.navbar:hover {
+    background-color: #4ECDC4; /* Changes on hover for a more dynamic feel */
+}
+
+.nav-home, .nav-links {
+    list-style-type: none;
+    display: flex;
+}
+
+.nav-home li, .nav-links li {
+    margin-right: 20px;
+}
+
+.nav-home a, .nav-links a {
+    color: #ffffff; /* Light text color */
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.nav-home a.active {
+    color: #fbc02d; /* Accent color for the active link */
+}
+
+.nav-home a:hover, .nav-links a:hover {
+    color: #fbc02d; /* Hover effect with the accent color */
+}
+
+/* Social Media Links in Navigation */
+.social-media a {
+    color: #f1f1f1; /* Light text for social media icons */
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.social-icon {
+    width: 24px;
+    height: 24px;
+    margin-left: 15px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
+}
+
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    background: linear-gradient(45deg, #FF6B6B, #4ECDC4);
+    background-size: 400% 400%;
+    animation: gradientShift 10s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+.cta-btn {
+    background-color: white;
+    color: #FF6B6B;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    text-decoration: none;
+}
+
+.cta-btn:hover {
+    background-color: #4ECDC4;
+    color: white;
+}
+
+/* About Section */
+.about {
+    background-color: white;
+    padding: 60px 80px;
+    text-align: center;
+}
+
+.about h2 {
+    color: #FF6B6B;
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+.about p {
+    font-size: 1.2rem;
+    color: #2c3e50;
+}
+
+/* Projects Section */
+.projects {
+    background-color: #f7f7f7;
+    padding: 60px 80px;
+    text-align: center;
+}
+
+.projects h2 {
+    color: #4ECDC4;
+    margin-bottom: 40px;
+    font-size: 2rem;
+}
+
+.project-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.project-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 350px; /* Ensures all cards are the same height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centers content vertically */
+    align-items: center; /* Centers content horizontally */
+    border: 2px solid transparent; /* Adds a border that will change on hover */
+    position: relative; /* For overlay hover effect */
+    overflow: hidden;
+    text-align: center; /* Ensures text is centered */
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.2);
+    border-color: #4ECDC4; /* Border changes on hover */
+}
+
+.project-card h3 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #FF6B6B;
+}
+
+.project-card p {
+    font-size: 1rem;
+    color: #2c3e50;
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 107, 107, 0.1); /* Light overlay effect */
+    transition: opacity 0.3s ease;
+    opacity: 0;
+}
+
+.project-card:hover::before {
+    opacity: 1;
+}
+
+/* Adding more hover effects */
+.project-card:hover h3 {
+    color: #4ECDC4;
+}
+
+.project-card:hover p {
+    color: #FF6B6B;
+}
+
+
+/* Skills Section */
+.skills {
+    background-color: #f7f7f7;
+    color: #2c3e50;
+    padding: 60px 80px;
+    text-align: center;
+}
+
+.skills h2 {
+    color: #FF6B6B;
+    margin-bottom: 40px;
+    font-size: 2rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.skills-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    padding: 0;
+}
+
+.skill-card {
+    background-color: #ffffff;
+    padding: 30px 20px;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #2c3e50;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+    cursor: pointer;
+    border: 3px solid transparent; /* Initial transparent border */
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.skill-card:hover {
+    transform: translateY(-10px);
+    border-color: #FF6B6B; /* Matches the hover effect with website color */
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+    background-color: #FF6B6B; /* Changes the background color to match */
+    color: #ffffff; /* Text becomes white on hover */
+}
+
+.skill-card h3 {
+    color: #4ECDC4; /* Primary color for skill text */
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+}
+
+.skill-card:hover h3 {
+    color: #ffffff; /* Text turns white on hover */
+}
+
+.skill-card p {
+    font-size: 1rem;
+    color: #2c3e50;
+}
+
+.skill-card:hover p {
+    color: #ffffff;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .skill-card {
+        font-size: 1.1rem;
+        padding: 20px;
+    }
+}
+
+/* Education Section */
+.education {
+    background-color: #ffffff;
+    padding: 60px 80px;
+    text-align: center;
+}
+
+.education h2 {
+    color: #4ECDC4;
+    margin-bottom: 40px;
+    font-size: 2rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.education-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.education-card {
+    background-color: #f7f7f7;
+    padding: 30px 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 2px solid transparent;
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+    height: 350px; /* Sets a consistent height for all cards */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Spreads content evenly */
+}
+
+.education-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    border-color: #FF6B6B; /* Accent color on hover */
+}
+
+.education-card h3 {
+    color: #FF6B6B;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.education-card p {
+    font-size: 1rem;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.education-achievements {
+    list-style: none;
+    padding-left: 20px;
+}
+
+.education-achievements li {
+    font-size: 0.8rem;
+    color: #2c3e50;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.education-achievements li::before {
+    content: '✓';
+    position: absolute;
+    left: -20px;
+    color: #FF6B6B; /* Accent color for list bullets */
+    font-weight: bold;
+}
+
+
+/* Footer Section */
+.footer {
+    background: linear-gradient(135deg, #151619, #2c3e50);
+    padding: 60px 80px;
+    color: #f1f1f1;
+    text-align: center;
+    background-color: #4ECDC4;
+}
+
+.footer:hover {
+    background-color: #4ECDC4; /* Changes on hover for a more dynamic feel */
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-bottom: 30px;
+}
+
+.footer-about, .footer-social, .footer-contact {
+    flex: 1;
+    min-width: 250px;
+}
+
+.footer h3 {
+    color: #fbc02d;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+}
+
+.footer p {
+    margin: 10px 0;
+    color: #ccc;
+    line-height: 1.6;
+}
+
+.footer a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.footer a:hover {
+    color: #fbc02d;
+}
+
+.footer-social img {
+    width: 32px;
+    margin: 10px 5px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.footer-social img:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
+}
+
+.footer-contact p {
+    font-size: 1.1rem;
+    color: #fbc02d;
+}
+
+.footer-contact a {
+    color: #fff;
+    font-size: 1.1rem;
+}
+
+.footer-contact a:hover {
+    color: #4ECDC4;
+}
+
+/* Copyright Section */
+.copyright {
+    color: #7f8c8d;
+    margin-top: 30px;
+    font-size: 0.9rem;
+    border-top: 1px solid #444;
+    padding-top: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: left;
+    }
+}
