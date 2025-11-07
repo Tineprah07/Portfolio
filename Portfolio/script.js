@@ -259,27 +259,50 @@ filterButtons.forEach(btn => {
 const contactForm = document.getElementById('contact-form');
 const formMessage = document.getElementById('form-message');
 
-contactForm.addEventListener('submit', (e) => {
-  e.preventDefault(); // Prevent the default form submission
+if (contactForm) {
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
 
-  // Show message and display a temporary loading state
-  formMessage.style.display = 'block';
-  formMessage.style.color = '#105be4';
-  formMessage.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Sending message...`;
+    // Show loading state
+    formMessage.style.display = 'block';
+    formMessage.style.color = '#105be4';
+    formMessage.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Sending message...`;
 
-  // Simulate an API call delay (3 seconds)
-  setTimeout(() => {
-    // 1. Success feedback (Updated message)
-    formMessage.style.color = '#10B981'; // Green color for success
-    formMessage.innerHTML = `<i class="fa-solid fa-circle-check"></i> Your message has been sent successfully. I'll get back to you ASAP!`;
-    
-    // 2. Clear the form fields
-    contactForm.reset();
-    
-    // 3. Optional: Hide message after a few seconds
-    setTimeout(() => {
-      formMessage.style.display = 'none';
-    }, 8000);
+    // Collect form data
+    const name = contactForm.querySelector('[name="name"], [name="from_name"]')?.value || "";
+    const email = contactForm.querySelector('[name="email"], [name="reply_to"]')?.value || "";
+    const subject = contactForm.querySelector('[name="subject"]')?.value || "";
+    const message = contactForm.querySelector('[name="message"]')?.value || "";
 
-  }, 3000); // 3-second delay
-});
+    try {
+      // 🔹 Replace this URL with your Render backend endpoint
+      const response = await fetch('https://YOUR-BACKEND-NAME.onrender.com/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name, email, subject, message }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        formMessage.style.color = '#10B981';
+        formMessage.innerHTML = `<i class="fa-solid fa-circle-check"></i> Your message has been sent successfully. I'll get back to you ASAP!`;
+        contactForm.reset();
+
+        // hide message after 8s
+        setTimeout(() => {
+          formMessage.style.display = 'none';
+        }, 8000);
+      } else {
+        formMessage.style.color = '#EF4444';
+        formMessage.innerHTML = `<i class="fa-solid fa-triangle-exclamation"></i> ${data.error || "Something went wrong. Please try again."}`;
+      }
+    } catch (err) {
+      console.error(err);
+      formMessage.style.color = '#EF4444';
+      formMessage.innerHTML = `<i class="fa-solid fa-triangle-exclamation"></i> Failed to send message. Please check your connection and try again.`;
+    }
+  });
+}
