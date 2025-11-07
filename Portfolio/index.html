@@ -1,197 +1,576 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="MY PORTFOLIO">
-    <meta name="description" content="Shop">
-    <meta name="date" content="September 2000">
-    <meta name="copyright" content="Copyright@2000"/>
-
-    <title>Augustine Somiah Gyamprah | My Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio | Augustine Gyamprah</title>
+  <!-- Links to external CSS and JS files remain as per the original structure -->
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap"
+        rel="stylesheet">
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <header>
-        <nav class="navbar">
-            <ul class="nav-home">
-                <li><a href="#" class="active">Home</a></li>
-            </ul>
-            
-            <ul class="nav-links">
-                <li><a href="#about">About Me</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
 
-            <section class="social-media">
-                <a href="https://github.com/Tineprah07"><img src="images/github-mark.png" alt="Github" class="social-icon"></a>
-                <a href="https://www.linkedin.com/feed/"><img src="https://cdn1.iconfinder.com/data/icons/logotypes/32/circle-linkedin-1024.png" alt="linkedin" class="social-icon"></a>
+  <header class="topbar">
+    <h1 class="name-logo">AUGUSTINE<span class="dot">.</span></h1>
+
+    <nav class="nav-pill" id="top-nav">
+      <a href="#home" class="nav-link active">Home</a>
+      <a href="#about" class="nav-link">About</a>
+      <a href="#skills" class="nav-link">Skills</a>
+      <a href="#experience" class="nav-link">Experience</a>
+      <a href="#projects" class="nav-link">Projects</a>
+      <a href="#contact" class="nav-link">Contact</a>
+      <span class="nav-indicator" id="nav-indicator"></span>
+    </nav>
+
+    <section class="mode-btn" id="mode-toggle" aria-label="Toggle theme">
+      <svg id="theme-icon" viewBox="0 0 24 24" width="24" height="24"></svg>
+    </section>
+  </header>
+
+  <main>
+    <!-- ================== HERO ================== -->
+    <section class="page" id="home">
+      <section class="hero">
+        <section class="hero-avatar">
+          <!-- Placeholder image URL - Replace with a real profile photo -->
+          <img src="images/augustine.png" alt="Augustine Somiah Gyamprah Profile" />
+        </section>
+
+        <!-- Updated Name -->
+        <h2>Hi! I'm Augustine Somiah Gyamprah</h2>
+
+        <section class="hero-title-box">
+          <!-- Dynamic title remains, managed by script.js -->
+          <h1 class="hero-title" id="dynamic-title">Web Developer</h1>
+        </section>
+
+        <p>
+          Final-year Software Engineering student at the University of Portsmouth, building
+          user-centred web apps like UniStress, FitMind, and full-stack dashboards. Based in Portsmouth, UK.
+        </p>
+
+        <section class="hero-socials" aria-label="Social media links">
+          <!-- GitHub Link from CV -->
+          <a href="https://github.com/Tineprah07" class="social-icon" aria-label="GitHub" target="_blank">
+            <i class="fa-brands fa-github"></i>
+          </a>
+          <!-- WhatsApp Link from CV Phone Number -->
+          <a href="https://wa.me/447551577816" class="social-icon" aria-label="WhatsApp" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i>
+          </a>
+          <!-- LinkedIn Link from CV -->
+          <a href="https://www.linkedin.com/in/augustine-gyamprah-7a26702b5/" class="social-icon" aria-label="LinkedIn" target="_blank">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+        </section>
+
+        <section class="hero-actions">
+          <a href="#contact" class="btn-primary">
+            Contact Me
+            <svg viewBox="0 0 20 20" class="btn-icon">
+              <path d="M2 4h16v12H2V4zm1.5 1.5v.3L10 11l6.5-5.2v-.3h-13z" fill="white"/>
+            </svg>
+          </a>
+          <button class="btn-secondary">
+            Resume (PDF)
+            <svg viewBox="0 0 20 20" class="btn-icon-secondary">
+              <path d="M10 3v9.2l3-3 .9 1L10 15 6.1 10.2l.9-1 3 3V3h1z" fill="#000"/>
+              <path d="M4 16h12v1H4z" fill="#000"/>
+            </svg>
+          </button>
+        </section>
+      </section>
+    </section>
+
+    <!-- ================== ABOUT ================== -->
+    <section class="page" id="about">
+      <section class="section about-section reveal">
+        <p class="section-kicker">Introduction</p>
+        <h2 class="section-title about-title">About me</h2>
+
+        <section class="about-content">
+          <figure class="about-photo">
+            <!-- Placeholder image URL - Replace with a real profile photo -->
+            <img src="images/augu.png" alt="Augustine Somiah Gyamprah">
+          </figure>
+
+          <article class="about-text">
+            <!-- Updated Profile Summary from CV -->
+            <p>
+              A highly motivated and results-driven **Software Engineering graduate** from the University of Portsmouth (expected 2026), passionate about developing innovative, efficient, and user-centred software solutions. My academic background demonstrates consistent excellence, achieving First-Class results and proven leadership in every group project.
+            </p>
+            <p>
+              I am skilled in full-stack development, database design, and usability engineering, bringing a unique blend of technical expertise and creative problem-solving.
+            </p>
+            <p>
+              My background also includes over two years of **medical studies** at Kharkiv National Medical University (Ukraine), where I developed strong analytical and problem-solving skills before pivoting to Software Engineering. I am eager to contribute to a forward-thinking organisation where I can apply my skills and deliver meaningful impact through technology.
+            </p>
+          </article>
+        </section>
+
+        <!-- Services section updated to match CV key skills -->
+        <section class="about-services">
+          <article class="about-service-card reveal" data-reveal-order="1">
+            <section class="icon-circle">
+              <i class="fa-solid fa-code"></i>
             </section>
-        </nav>
-    </header>
-
-    <!-- Hero Section -->
-    <section id="hero" class="hero">
-        <header class="hero-content">
-            <h1>Hello, I'm Augustine Somiah Gyamprah</h1>
-            <p>Software Engineer.</p>
-            <a href="#projects" class="cta-btn">Explore My Work</a>
-        </header>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="about">
-        <header>
-            <h2>ABOUT ME</h2>
-        </header>
-        <article>
-            <p>I am a Software Engineering student with a passion for web development, app design, and multimedia editing. My creative eye for detail allows me to craft solutions that are both functional and aesthetically pleasing. I’m also deeply passionate about using AI to transform technology, always looking for innovative ways to push the boundaries of what’s possible. While software engineering is my main focus, I enjoy working on web development projects as a side skill. I also love making animations and editing pictures and videos, blending technology with creativity to deliver unique digital experiences.</p>
-        </article>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <header>
-            <h2>FEATURED PROJECTS</h2>
-        </header>
-        <ul class="project-list">
-            <li>
-                <article class="project-card">
-                    <h3>ELE Website</h3>
-                    <p>Developed an online shopping website using HTML and CSS, showcasing products with user-friendly navigation.</p>
-                </article>
-            </li>
-            <li>
-                <article class="project-card">
-                    <h3>Portfolio Website</h3>
-                    <p>My personal portfolio showcasing my creative projects and skills.</p>
-                </article>
-            </li>
-            <li>
-                <article class="project-card">
-                    <h3>Custom Route Algorithm</h3>
-                    <p>Developed an optimized route algorithm for self-driving cars, enhancing efficiency in pathfinding.</p>
-                </article>
-            </li>
-            <li>
-                <article class="project-card">
-                    <h3>Computer Network Design</h3>
-                    <p>Designed and implemented a logical and physical network infrastructure for a festival site using Cisco Packet Tracer.</p>
-                </article>
-            </li>
-            <li>
-                <article class="project-card">
-                    <h3>Tutoring Service Database</h3>
-                    <p>Designed and developed a relational database for a tutoring service using PostgreSQL, including generating queries for data retrieval.</p>
-                </article>
-            </li>
-            <li>
-                <article class="project-card">
-                    <h3>Patchwork Maker</h3>
-                    <p>Created a Python program to generate a patchwork display, incorporating key programming concepts such as loops and user input handling.</p>
-                </article>
-            </li>
-            <li>
-                <article class="project-card">
-                    <h3>Smart Home Management System</h3>
-                    <p>Developed a desktop-based smart home system using the Tkinter framework, allowing users to manage multiple smart devices through an intuitive GUI.</p>
-                </article>
-            </li>
-        </ul>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
-        <header>
-            <h2>Skills</h2>
-        </header>
-        <ul class="skills-list">
-            <li class="skill-card">Web Development</li>
-            <li class="skill-card">Video Editing</li>
-            <li class="skill-card">Animation Design</li>
-            <li class="skill-card">App Development</li>
-            <li class="skill-card">AI Integration</li>
-            <li class="skill-card">Database Management</li>
-            <li class="skill-card">Problem Solving</li>
-        </ul>
-    </section>
-
-   <!-- Education Section -->
-    <section id="education" class="education">
-        <header>
-            <h2>Education</h2>
-        </header>
-        <ul class="education-list">
-            <li>
-                <article class="education-card">
-                    <h3>University of Portsmouth</h3>
-                    <p>BSc (Hons) Software Engineering - 2023 - Present</p>
-                    <p>Key Achievements:</p>
-                    <ul class="education-achievements">
-                        <li>Achieved all As from foundation year through the current year.</li>
-                        <li>Group leader for all projects in years 1 and 2.</li>
-                        <li>Developed multiple software solutions and apps.</li>
-                    </ul>
-                </article>
-            </li>
-            <li>
-                <article class="education-card">
-                    <h3>International College of Portsmouth</h3>
-                    <p>Foundation Degree in Science: Computing - 2022</p>
-                    <p>Key Achievements:</p>
-                    <ul class="education-achievements">
-                        <li>Graduated with Distinction.</li>
-                        <li>Average mark: 90%.</li>
-                        <li>Created foundational projects in Python</li>
-                    </ul>
-                </article>
-            </li>
-            <li>
-                <article class="education-card">
-                    <h3>Kharkiv National Medical University</h3>
-                    <p>Medical Studies - 2019 - 2022</p>
-                    <p>Key Achievements:</p>
-                    <ul class="education-achievements">
-                        <li>Acquired foundational knowledge in medical sciences.</li>
-                        <li>Developed analytical and problem-solving skills through intensive coursework.</li>
-                        <li>Adapted to international education and collaboration with peers.</li>
-                    </ul>
-                </article>
-            </li>
-            <li>
-                <article class="education-card">
-                    <h3>Prempeh College</h3>
-                    <p>High School - 2016 - 2019</p>
-                    <p>Key Achievements:</p>
-                    <ul class="education-achievements">
-                        <li>Specialized in Science and Mathematics.</li>
-                        <li>Developed a passion for technology and programming.</li>
-                    </ul>
-                </article>
-            </li>
-        </ul>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <section class="footer-social">
-                <h3>Follow Me</h3>
-                <a href="https://github.com/Tineprah07"><img src="images/github-mark.png" alt="Github" class="social-icon"></a>
-                <a href="https://www.linkedin.com/feed/"><img src="https://cdn1.iconfinder.com/data/icons/logotypes/32/circle-linkedin-1024.png" alt="linkedin" class="social-icon"></a>
+            <section>
+              <h3>Full-Stack Web</h3>
+              <p>Flask / Python backends with modern JS frontends and clean UI.</p>
             </section>
+          </article>
 
-            <section class="footer-contact">
-                <h3>Contact Me</h3>
-                <p>Email: gyamprahaugustine07@gmail.com</p>
-                <p>Phone: +44 7551 577816</p>
+          <article class="about-service-card reveal" data-reveal-order="2">
+            <section class="icon-circle">
+              <i class="fa-solid fa-database"></i>
             </section>
+            <section>
+              <h3>Database Design</h3>
+              <p>Skilled in database design (PostgreSQL) and developing custom algorithms and optimized systems.</p>
+            </section>
+          </article>
+
+          <article class="about-service-card reveal" data-reveal-order="3">
+            <section class="icon-circle">
+              <i class="fa-solid fa-users-line"></i>
+            </section>
+            <section>
+              <h3>Leadership & Teamwork</h3>
+              <p>Proven leadership in multiple academic projects and strong collaboration skills in diverse teams.</p>
+            </section>
+          </article>
+
+          <article class="about-service-card reveal" data-reveal-order="4">
+            <section class="icon-circle">
+              <i class="fa-solid fa-comments"></i>
+            </section>
+            <section>
+              <h3>Communication</h3>
+              <p>Fluent in English, Twi, and Sefwi, ensuring strong verbal and written communication.</p>
+            </section>
+          </article>
+        </section>
+      </section>
+    </section>
+
+    <section class="page" id="skills">
+      <section class="section skills-section reveal">
+        <p class="section-kicker">My Tools</p>
+        <h2 class="section-title skills-title">Technical & Transferable Skills</h2>
+
+        <div class="skill-filters">
+          <button class="btn-filter active-filter" data-category="all">All Skills</button>
+          <button class="btn-filter" data-category="programming">Programming & DB</button>
+          <button class="btn-filter" data-category="soft">Soft & Transferable</button>
         </div>
-        <p class="copyright">&copy; 2024 Augustine Somiah Gyamprah. All Rights Reserved.</p>
-    </footer>
 
+        <section class="skills-grid">
+          <!-- Programming & Database Skills (based strictly on CV) -->
+          <article class="skill-category" data-category="programming">
+            <h3>Programming Languages & DB</h3>
+            <div class="skill-list">
+              <span class="skill-tag" data-filter="programming"><i class="fa-brands fa-python"></i> Python</span>
+              <span class="skill-tag" data-filter="programming"><i class="fa-brands fa-html5"></i> HTML</span>
+              <span class="skill-tag" data-filter="programming"><i class="fa-brands fa-css3-alt"></i> CSS</span>
+              <span class="skill-tag" data-filter="programming"><i class="fa-brands fa-js"></i> JavaScript</span>
+              <span class="skill-tag" data-filter="programming"><i class="fa-solid fa-database"></i> SQL</span>
+              <!-- Database related skills are inferred from projects/summary -->
+              <span class="skill-tag" data-filter="programming"><i class="fa-solid fa-gear"></i> Custom Algorithms</span>
+              <span class="skill-tag" data-filter="programming"><i class="fa-solid fa-table"></i> PostgreSQL (from project)</span>
+            </div>
+          </article>
+
+          <!-- Soft & Transferable Skills (based strictly on CV) -->
+          <article class="skill-category" data-category="soft">
+            <h3>Soft & Transferable Skills</h3>
+            <div class="skill-list">
+              <span class="skill-tag" data-filter="soft"><i class="fa-solid fa-lightbulb"></i> Problem Solving</span>
+              <span class="skill-tag" data-filter="soft"><i class="fa-solid fa-user-tie"></i> Leadership</span>
+              <span class="skill-tag" data-filter="soft"><i class="fa-solid fa-people-group"></i> Teamwork</span>
+              <span class="skill-tag" data-filter="soft"><i class="fa-solid fa-language"></i> Communication (English, Twi, Sefwi)</span>
+              <span class="skill-tag" data-filter="soft"><i class="fa-solid fa-brain"></i> Strong Analytical Skills</span>
+              <span class="skill-tag" data-filter="soft"><i class="fa-solid fa-handshake"></i> Organisational Responsibility</span>
+            </div>
+          </article>
+
+          <!-- Hobbies section to match the 3-column grid structure -->
+          <article class="skill-category" data-category="soft">
+            <h3>Hobbies & Interests</h3>
+            <div class="skill-list">
+              <span class="skill-tag"><i class="fa-solid fa-book-open"></i> Reading</span>
+              <span class="skill-tag"><i class="fa-solid fa-utensils"></i> Cooking</span>
+              <span class="skill-tag"><i class="fa-solid fa-futbol"></i> Football</span>
+              <span class="skill-tag"><i class="fa-solid fa-video"></i> Video Editing</span>
+              <span class="skill-tag"><i class="fa-solid fa-wand-magic-sparkles"></i> Animation</span>
+            </div>
+          </article>
+        </section>
+      </section>
+    </section>
+
+    <section class="page" id="experience">
+      <section class="section experience-section reveal">
+        <p class="section-kicker">Journey</p>
+        <h2 class="section-title experience-title">Work & Education Timeline</h2>
+
+        <section class="timeline">
+          <!-- Item 1: Education (Right) - BSc Software Engineering -->
+          <article class="timeline-item right reveal">
+            <div class="timeline-content">
+              <span class="timeline-date">EXPECTED GRADUATION: 2026</span>
+              <h4>BSc (Hons) Software Engineering</h4>
+              <p>
+                **University of Portsmouth, UK.** Academic background demonstrates consistent excellence, achieving First-Class results.
+              </p>
+            </div>
+            <div class="timeline-marker"></div>
+          </article>
+          
+          <!-- Item 2: Work Experience (Left) - Cruise Marshall -->
+          <article class="timeline-item left reveal">
+            <div class="timeline-content">
+              <span class="timeline-date">AUG 2025 - PRESENT (Part-time)</span>
+              <h4>Cruise Marshall - SCH, Portsmouth</h4>
+              <p>
+                Assist cruise passengers with embarkation, disembarkation, and luggage handling to ensure smooth operations while developing strong teamwork and customer service skills.
+              </p>
+            </div>
+            <div class="timeline-marker"></div>
+          </article>
+          
+          <!-- Item 3: Work Experience (Right) - Housekeeper Brittany Ferries -->
+          <article class="timeline-item right reveal">
+            <div class="timeline-content">
+              <span class="timeline-date">APR 2025 - JUN 2025 (Part-time)</span>
+              <h4>Housekeeper - Brittany Ferries, Portsmouth</h4>
+              <p>
+                Maintained cleanliness standards on board ferries and supported team efficiency in a fast-paced service environment.
+              </p>
+            </div>
+            <div class="timeline-marker"></div>
+          </article>
+          
+          <!-- Item 4: Education (Left) - ICP Foundation Degree -->
+          <article class="timeline-item left reveal">
+            <div class="timeline-content">
+              <span class="timeline-date">2022 - 2023</span>
+              <h4>Foundation Degree in Science: Computing</h4>
+              <p>
+                **International College of Portsmouth.** Foundation program leading into the BSc Software Engineering degree.
+              </p>
+            </div>
+            <div class="timeline-marker"></div>
+          </article>
+          
+          <!-- Item 5: Work Experience (Right) - Housekeeper The Queens Hotel -->
+          <article class="timeline-item right reveal">
+            <div class="timeline-content">
+              <span class="timeline-date">JUL 2023 - JUL 2024 (Part-time)</span>
+              <h4>Housekeeper - The Queens Hotel, Portsmouth</h4>
+              <p>
+                Delivered high guest satisfaction through consistent service quality, teamwork, and attention to detail.
+              </p>
+            </div>
+            <div class="timeline-marker"></div>
+          </article>
+          
+          <!-- Item 6: Education (Left) - Kharkiv National Medical University -->
+          <article class="timeline-item left reveal">
+            <div class="timeline-content">
+              <span class="timeline-date">2019 - 2022</span>
+              <h4>Medical Studies</h4>
+              <p>
+                **Kharkiv National Medical University, Ukraine.** Developed strong analytical and problem-solving skills before pivoting to Software Engineering.
+              </p>
+            </div>
+            <div class="timeline-marker"></div>
+          </article>
+          
+          <!-- Item 7: Work Experience (Right) - M. Gyamprah Enterprise -->
+          <article class="timeline-item right reveal">
+            <div class="timeline-content">
+              <span class="timeline-date">FEB 2022 - DEC 2022</span>
+              <h4>Family Business Support - M. Gyamprah Enterprise, Ghana</h4>
+              <p>
+                Contributed to administrative and digital operations, assisting with record-keeping, client coordination, and small-scale logistics.
+              </p>
+            </div>
+            <div class="timeline-marker"></div>
+          </article>
+
+           <!-- Item 8: Education (Left) - Prempeh College -->
+          <article class="timeline-item left reveal">
+            <div class="timeline-content">
+              <span class="timeline-date">2016 - 2019</span>
+              <h4>High School Certificate</h4>
+              <p>
+                **Prempeh College.** Completed high school studies prior to starting university.
+              </p>
+            </div>
+            <div class="timeline-marker"></div>
+          </article>
+
+        </section>
+      </section>
+    </section>
+
+    <section class="page" id="projects">
+      <section class="section projects-section reveal">
+        <p class="section-kicker">My Work</p>
+        <h2 class="section-title projects-title">Featured Projects & Contributions</h2>
+
+        <section class="projects-grid">
+
+          <!-- Project 1: UniStress -->
+          <article class="project-card reveal" data-reveal-order="1">
+            <figure class="project-image-container">
+              <img src="https://placehold.co/400x200/2C5DA0/ffffff?text=UniStress+Web+App" alt="Screenshot of UniStress Dashboard" />
+            </figure>
+            <section class="project-details">
+              <h4>UniStress – Student-Centric Web Application (2025–2026)</h4>
+              <p>
+                Developing a full-stack Flask web app to help students track and manage stress through personalized dashboards and real-time data visualization.
+              </p>
+              <div class="project-tags">
+                <span class="skill-tag"><i class="fa-brands fa-python"></i> Flask</span>
+                <span class="skill-tag"><i class="fa-solid fa-chart-bar"></i> Data Visualization</span>
+                <span class="skill-tag"><i class="fa-solid fa-code"></i> Full-Stack Development</span>
+              </div>
+              <div class="project-actions">
+                <a href="#" class="btn-primary" target="_blank">
+                  <i class="fa-solid fa-up-right-from-square"></i> Live Demo
+                </a>
+                <a href="https://github.com/Tineprah07" class="btn-secondary" target="_blank">
+                  <i class="fa-brands fa-github"></i> View Code
+                </a>
+              </div>
+            </section>
+          </article>
+          
+          <!-- Project 2: FitMind -->
+          <article class="project-card reveal" data-reveal-order="2">
+            <figure class="project-image-container">
+              <img src="https://placehold.co/400x200/3477A6/ffffff?text=FitMind+Tracker" alt="Screenshot of FitMind Exercise & Stress Tracker" />
+            </figure>
+            <section class="project-details">
+              <h4>FitMind – Exercise & Stress Tracker (2024)</h4>
+              <p>
+                Built a wellness web app using **Flask** and **AJAX** with live chart updates and tailored recommendations, focusing on exercise and stress correlation.
+              </p>
+              <div class="project-tags">
+                <span class="skill-tag"><i class="fa-brands fa-python"></i> Flask</span>
+                <span class="skill-tag"><i class="fa-brands fa-js"></i> AJAX</span>
+                <span class="skill-tag"><i class="fa-solid fa-heart-pulse"></i> Wellness App</span>
+              </div>
+              <div class="project-actions">
+                <a href="#" class="btn-primary" target="_blank">
+                  <i class="fa-solid fa-up-right-from-square"></i> Live Demo
+                </a>
+                <a href="https://github.com/Tineprah07" class="btn-secondary" target="_blank">
+                  <i class="fa-brands fa-github"></i> View Code
+                </a>
+              </div>
+            </section>
+          </article>
+          
+          <!-- Project 3: Power Plant -->
+          <article class="project-card reveal" data-reveal-order="3">
+            <figure class="project-image-container">
+              <img src="https://placehold.co/400x200/518ACD/ffffff?text=H4MoD+Power+Plant+Concept" alt="Illustration of Hybrid Power System" />
+            </figure>
+            <section class="project-details">
+              <h4>Power Plant – Hacking for Ministry of Defence (H4MoD) Project (2024–2025)</h4>
+              <p>
+                Led a team project designing hybrid power concepts to improve efficiency and sustainability in military command posts.
+              </p>
+              <div class="project-tags">
+                <span class="skill-tag"><i class="fa-solid fa-user-tie"></i> Team Leadership</span>
+                <span class="skill-tag"><i class="fa-solid fa-lightbulb"></i> Concept Design</span>
+                <span class="skill-tag"><i class="fa-solid fa-bolt"></i> Sustainability</span>
+              </div>
+              <div class="project-actions">
+                <a href="#" class="btn-primary" target="_blank">
+                  <i class="fa-solid fa-up-right-from-square"></i> Project Details
+                </a>
+                <a href="#" class="btn-secondary" target="_blank">
+                  <i class="fa-solid fa-file-pdf"></i> Report
+                </a>
+              </div>
+            </section>
+          </article>
+
+          <!-- Project 4: Smart Home Management System -->
+          <article class="project-card reveal" data-reveal-order="4">
+            <figure class="project-image-container">
+              <img src="https://placehold.co/400x200/6990D4/ffffff?text=Smart+Home+Desktop+App" alt="Screenshot of Tkinter Smart Home Interface" />
+            </figure>
+            <section class="project-details">
+              <h4>Smart Home Management System (2023)</h4>
+              <p>
+                Created a **Tkinter-based desktop app** for controlling household devices from a single interface, demonstrating desktop application development skills using Python.
+              </p>
+              <div class="project-tags">
+                <span class="skill-tag"><i class="fa-brands fa-python"></i> Python</span>
+                <span class="skill-tag"><i class="fa-solid fa-desktop"></i> Tkinter GUI</span>
+                <span class="skill-tag"><i class="fa-solid fa-house-chimney"></i> IoT/Home Control</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://github.com/Tineprah07" class="btn-primary" target="_blank">
+                  <i class="fa-brands fa-github"></i> View Code
+                </a>
+                <a href="#" class="btn-secondary" target="_blank">
+                  <i class="fa-solid fa-download"></i> Download Demo
+                </a>
+              </div>
+            </section>
+          </article>
+          
+          <!-- Project 5: Tutoring Service Database -->
+          <article class="project-card reveal" data-reveal-order="5">
+            <figure class="project-image-container">
+              <img src="https://placehold.co/400x200/81A6DB/ffffff?text=PostgreSQL+Database+Schema" alt="Diagram of Tutoring Database Schema" />
+            </figure>
+            <section class="project-details">
+              <h4>Tutoring Service Database (2023)</h4>
+              <p>
+                Designed a **PostgreSQL database** with efficient data storage, retrieval, and reporting capabilities for a tutoring service.
+              </p>
+              <div class="project-tags">
+                <span class="skill-tag"><i class="fa-solid fa-database"></i> PostgreSQL</span>
+                <span class="skill-tag"><i class="fa-solid fa-table"></i> SQL</span>
+                <span class="skill-tag"><i class="fa-solid fa-magnifying-glass-chart"></i> Reporting</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://github.com/Tineprah07" class="btn-primary" target="_blank">
+                  <i class="fa-brands fa-github"></i> View Schema
+                </a>
+                <a href="#" class="btn-secondary" target="_blank">
+                  <i class="fa-solid fa-file-lines"></i> Documentation
+                </a>
+              </div>
+            </section>
+          </article>
+
+        </section>
+      </section>
+    </section>
+
+    <section class="page" id="contact">
+      <section class="section contact-section reveal">
+        <p class="section-kicker">Get in touch</p>
+        <h2 class="section-title contact-title">Let's build something great.</h2>
+
+        <section class="contact-container">
+          
+          <article class="contact-form-area reveal">
+            <h3>Send a Message</h3>
+            <form id="contact-form" action="#" method="POST">
+              
+              <div class="input-group">
+                <input type="text" id="name" name="name" class="input-field" placeholder=" " required>
+                <label for="name" class="floating-label">Your Name</label>
+              </div>
+
+              <div class="input-group">
+                <input type="email" id="email" name="email" class="input-field" placeholder=" " required>
+                <label for="email" class="floating-label">Email Address</label>
+              </div>
+
+              <div class="input-group">
+                <input type="text" id="subject" name="subject" class="input-field" placeholder=" " required>
+                <label for="subject" class="floating-label">Subject</label>
+              </div>
+
+              <div class="input-group">
+                <textarea id="message" name="message" class="input-field" placeholder=" " rows="4" required></textarea>
+                <label for="message" class="floating-label">Tell me about your project...</label>
+              </div>
+              
+                <section class="contact-form-actions">
+                    <button type="submit" class="btn-primary contact-submit">
+                        <i class="fa-solid fa-paper-plane"></i>
+                        Send
+                    </button>
+                </section>
+
+
+              <div id="form-message" class="form-message" style="margin-top: 1rem; color: #105be4; display: none;">
+                </div>
+            </form>
+          </article>
+          
+            <section class="contact-info-area">
+                <!-- Updated Email Card -->
+                <article class="contact-card contact-mail">
+                    <section class="contact-icon">
+                    <i class="fa-solid fa-envelope"></i>
+                    </section>
+                    <section class="contact-body">
+                    <p class="contact-label">Email Me</p>
+                    <h4 class="contact-value">gyamprahaugustine07@gmail.com</h4>
+                    <a href="mailto:gyamprahaugustine07@gmail.com" class="contact-action">
+                        Send an email <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                    </section>
+                </article>
+
+                <!-- Updated LinkedIn Card -->
+                <article class="contact-card contact-linkedin">
+                    <section class="contact-icon">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                    </section>
+                    <section class="contact-body">
+                    <p class="contact-label">Connect on LinkedIn</p>
+                    <h4 class="contact-value">/in/augustine-gyamprah-7a26702b5/</h4>
+                    <a href="https://www.linkedin.com/in/augustine-gyamprah-7a26702b5/" class="contact-action" target="_blank">
+                        View profile <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                    </section>
+                </article>
+
+                <!-- Updated Location Card -->
+                <article class="contact-card contact-location">
+                    <section class="contact-icon">
+                    <i class="fa-solid fa-location-dot"></i>
+                    </section>
+                    <section class="contact-body">
+                    <p class="contact-label">Location</p>
+                    <h4 class="contact-value">Portsmouth, UK (PO1 4TG)</h4>
+                    <p class="contact-meta">Available for remote & UK-based roles</p>
+                    </section>
+                </article>
+
+                <!-- Updated Phone Card -->
+                <article class="contact-card contact-phone">
+                    <section class="contact-icon">
+                    <i class="fa-solid fa-phone"></i>
+                    </section>
+                    <section class="contact-body">
+                    <p class="contact-label">Phone / WhatsApp</p>
+                    <h4 class="contact-value">+44 7551 577816</h4>
+                    <a href="https://wa.me/447551577816" class="contact-action" target="_blank">
+                        Chat on WhatsApp <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                    </section>
+                </article>
+            </section>
+
+        </section>
+      </section>
+    </section>
+
+    <footer class="page footer-section" style="text-align: center; margin-top: 0; padding-top: 0; font-size: 0.85rem; color: var(--muted);">
+      <p>&copy; 2024 Augustine. Built with passion and code. All Rights Reserved.</p>
+    </footer>
+  </main>
+
+  <section class="cursor-dot"></section>
+  <section class="cursor-outline"></section>
+
+  <script src="script.js"></script>
 </body>
 </html>
