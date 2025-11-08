@@ -274,8 +274,7 @@ if (contactForm) {
 
     try {
       // NEW – use local server while developing
-      const response = await fetch('http://localhost:4000/contact', {
-
+      const response = await fetch('https://augustine-portfolio.onrender.com/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
