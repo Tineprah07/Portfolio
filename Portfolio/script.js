@@ -263,19 +263,16 @@ if (contactForm) {
   contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    // Show loading state
     formMessage.style.display = 'block';
     formMessage.style.color = '#105be4';
     formMessage.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Sending message...`;
 
-    // Collect form data
     const name = contactForm.querySelector('[name="name"], [name="from_name"]')?.value || "";
     const email = contactForm.querySelector('[name="email"], [name="reply_to"]')?.value || "";
     const subject = contactForm.querySelector('[name="subject"]')?.value || "";
     const message = contactForm.querySelector('[name="message"]')?.value || "";
 
     try {
-      // ✅ your actual Render backend
       const response = await fetch('https://augustine-portfolio.onrender.com/contact', {
         method: 'POST',
         headers: {
@@ -284,25 +281,32 @@ if (contactForm) {
         body: JSON.stringify({ name, email, subject, message }),
       });
 
-      const data = await response.json();
+      // try to read JSON but don't crash if it's not JSON
+      let data = {};
+      try {
+        data = await response.json();
+      } catch (e) {
+        data = {};
+      }
 
       if (response.ok) {
         formMessage.style.color = '#10B981';
         formMessage.innerHTML = `<i class="fa-solid fa-circle-check"></i> Your message has been sent successfully. I'll get back to you ASAP!`;
         contactForm.reset();
 
-        // hide message after 8s
         setTimeout(() => {
           formMessage.style.display = 'none';
         }, 8000);
       } else {
         formMessage.style.color = '#EF4444';
-        formMessage.innerHTML = `<i class="fa-solid fa-triangle-exclamation"></i> ${data.error || "Something went wrong. Please try again."}`;
+        formMessage.innerHTML =
+          `<i class="fa-solid fa-triangle-exclamation"></i> ${data.error || "Something went wrong. Please try again."}`;
       }
     } catch (err) {
       console.error(err);
       formMessage.style.color = '#EF4444';
-      formMessage.innerHTML = `<i class="fa-solid fa-triangle-exclamation"></i> Failed to send message. Please check your connection and try again.`;
+      formMessage.innerHTML =
+        `<i class="fa-solid fa-triangle-exclamation"></i> Failed to send message. It may be a CORS or server issue.`;
     }
   });
 }

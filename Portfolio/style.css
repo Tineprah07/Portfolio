@@ -1845,3 +1845,11 @@ body.dark-mode .project-actions .btn-secondary {
   color: #fff;
 }
 
+/* disable scroll/reveal animation on mobile to stop twitching */
+@media (max-width: 768px) {
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
