@@ -480,21 +480,22 @@ body.dark-mode .social-icon::after {
   /* Force Form Area to appear first */
   .contact-form-area {
     order: 1; 
+    padding: 1.25rem 1rem;
   }
   
   /* Force Info Area to appear second (below the form) */
   .contact-info-area {
     order: 2;
     padding: 0; /* Clear default padding if present */
+    gap: 0.8rem;
   }
 
   /* Centering the icon and text block within the contact info card */
-  /* This is not needed for the NEW contact-card style, but keeping existing code safe */
   .contact-card-item {
-    align-items: center; /* Center icon and text block */
-    justify-content: center; /* Center the whole content block */
-    text-align: center; /* Center the text inside the blocks */
-    flex-direction: column; /* Stack icon on top of text */
+    align-items: center; 
+    justify-content: center; 
+    text-align: center; 
+    flex-direction: column;
   }
   
   .contact-card-item section {
@@ -504,6 +505,29 @@ body.dark-mode .social-icon::after {
   /* Add margin below the icon circle to space it from the stacked text */
   .contact-card-item .icon-circle {
     margin-bottom: 0.5rem;
+  }
+  .contact-card {
+    padding: 0.8rem 0.85rem 0.8rem 0.75rem;
+    border-radius: 1rem;
+  }
+
+  .contact-icon {
+    width: 2.4rem;
+    height: 2.4rem;
+    font-size: 1rem;
+  }
+
+  .contact-label {
+    font-size: 0.65rem;
+  }
+
+  .contact-value {
+    font-size: 0.85rem;
+    word-break: break-word;
+  }
+
+  .contact-action {
+    font-size: 0.68rem;
   }
 }
 
@@ -596,6 +620,41 @@ body.dark-mode .social-icon::after {
     font-size: 0.9rem;
   }
 }
+
+@media (max-width: 600px) {
+  .contact-form-area {
+    padding: 1.25rem 1rem;
+  }
+
+  .contact-info-area {
+    gap: 0.8rem;
+  }
+
+  .contact-card {
+    padding: 0.8rem 0.85rem 0.8rem 0.75rem;
+    border-radius: 1rem;
+  }
+
+  .contact-icon {
+    width: 2.4rem;
+    height: 2.4rem;
+    font-size: 1rem;
+  }
+
+  .contact-label {
+    font-size: 0.65rem;
+  }
+
+  .contact-value {
+    font-size: 0.85rem;
+    word-break: break-word;
+  }
+
+  .contact-action {
+    font-size: 0.68rem;
+  }
+}
+
 
 /* dark mode (script adds .dark-mode to body) */
 body.dark-mode {
@@ -1317,6 +1376,21 @@ body.dark-mode .project-card {
   padding: 0.7rem 1.4rem;
   border-radius: 9999px;
   gap: 0.4rem;
+}
+
+/* Stack contact form and info earlier */
+@media (max-width: 1100px) {
+  .contact-container {
+    grid-template-columns: 1fr;   /* form on top, info below */
+  }
+
+  .contact-form-area {
+    order: 1;
+  }
+
+  .contact-info-area {
+    order: 2;
+  }
 }
 
 /* on small screens, let it stretch so it doesn't look squeezed */
