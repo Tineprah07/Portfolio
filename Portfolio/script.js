@@ -275,8 +275,8 @@ if (contactForm) {
     const message = contactForm.querySelector('[name="message"]')?.value || "";
 
     try {
-      // 🔹 Replace this URL with your Render backend endpoint
-      const response = await fetch('https://YOUR-BACKEND-NAME.onrender.com/contact', {
+      // ✅ your actual Render backend
+      const response = await fetch('https://augustine-portfolio.onrender.com/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
