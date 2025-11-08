@@ -292,3 +292,34 @@ if (contactForm) {
     window.location.href = mailtoLink;
   });
 }
+
+// NEW: Define a function to check for mobile/touch-first environment
+function isTouchDevice() {
+  // Check for max width OR touch capability
+  return window.matchMedia("(max-width: 768px)").matches || 
+         ('ontouchstart' in window) || 
+         (navigator.maxTouchPoints > 0) || 
+         (navigator.msMaxTouchPoints > 0);
+}
+
+// Only enable the scroll observer on non-mobile devices
+if (!isTouchDevice()) {
+  const revealSections = document.querySelectorAll(".reveal, .timeline-item");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+          // once shown, we can unobserve to avoid re-animating
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.2,
+    }
+  );
+
+  revealSections.forEach((sec) => observer.observe(sec));
+}
