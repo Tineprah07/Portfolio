@@ -5,9 +5,6 @@ import nodemailer from "nodemailer";
 import path from "path";
 import { fileURLToPath } from "url";
 import "dotenv/config";
-app.use(cors());
-app.use(express.json());
-
 
 const app = express();
 
@@ -35,33 +32,39 @@ app.post("/contact", async (req, res) => {
   try {
     const { name, email, subject, message } = req.body;
 
-    // basic check
+    // 1. basic form check
     if (!name || !email || !message) {
       return res.status(400).json({ error: "Please fill all required fields." });
     }
 
-    // make sure Render actually got the envs
+    // 2. make sure Render actually got your envs
     if (
+      !process.env.MAIL_HOST ||
+      !process.env.MAIL_PORT ||
       !process.env.MAIL_USER ||
       !process.env.MAIL_PASS
     ) {
       return res.status(500).json({
         error: "Email not configured on server.",
-        detail: "Missing MAIL_USER or MAIL_PASS on Render",
+        detail: "Missing env vars on Render",
       });
     }
 
-    // use simpler gmail config
+    // 3. create transporter (same as before)
     const transporter = nodemailer.createTransport({
-      service: "gmail",
+      host: process.env.MAIL_HOST,
+      port: Number(process.env.MAIL_PORT),
+      secure: false,
       auth: {
         user: process.env.MAIL_USER,
         pass: process.env.MAIL_PASS,
       },
     });
 
-    // ❌ don't call transporter.verify() on Render
+    // ❗️important: REMOVE verify() for Render
+    // await transporter.verify();
 
+    // 4. send mail
     await transporter.sendMail({
       from: `"Portfolio Contact" <${process.env.MAIL_USER}>`,
       to: "gyamprahaugustine07@gmail.com",
@@ -76,6 +79,7 @@ app.post("/contact", async (req, res) => {
       `,
     });
 
+    console.log("✅ Email sent successfully (Render)");
     return res.json({ success: true, message: "Message sent ✅" });
   } catch (err) {
     console.error("Mail error on Render:", err);
@@ -85,7 +89,6 @@ app.post("/contact", async (req, res) => {
     });
   }
 });
-
 
 // fallback for any other route
 app.get("*", (req, res) => {
