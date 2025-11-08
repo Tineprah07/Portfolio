@@ -406,6 +406,7 @@ body.dark-mode .social-icon::after {
 }
 
 .btn-secondary {
+  font-size: 0.9rem;
   background: var(--card);
   color: var(--text);
   border: 1px solid var(--border);
@@ -417,6 +418,7 @@ body.dark-mode .social-icon::after {
   align-items: center;
   cursor: pointer;
   box-shadow: 0 10px 35px rgba(0,0,0,0.03);
+  text-decoration: none !important;
 }
 
 .btn-icon,
@@ -1668,4 +1670,143 @@ body.dark-mode .contact-github .contact-icon {
 body.dark-mode .contact-github:hover .contact-icon {
   background-color: #ffffff; /* slightly brighter on hover */
   transition: background-color 0.3s ease;
+}
+
+/* ===== BOX-STYLE PROJECT CARDS ===== */
+.project-feature {
+  border-radius: 1rem;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-feature:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* Color header boxes */
+.project-blue .project-head { background-color: #0d6efd; color: #fff; }
+.project-green .project-head { background-color: #198754; color: #fff; }
+.project-indigo .project-head { background-color: #2c5da0; color: #fff; }
+.project-orange .project-head { background-color: #ff7a1a; color: #fff; }
+.project-lightblue .project-head { background-color: #4989e0; color: #fff; }
+
+/* Header box */
+.project-head {
+  padding: 1.3rem 1.5rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.project-badges {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.badge {
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 0.4rem;
+  padding: 0.25rem 0.6rem;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-weight: 500;
+}
+
+.badge-outline {
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  background: transparent;
+}
+
+.project-icon {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.2rem;
+  font-size: 1.8rem;
+  opacity: 0.3;
+}
+
+.project-title-top {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-top: 0.2rem;
+}
+
+.project-sub {
+  font-size: 0.8rem;
+  opacity: 0.9;
+  margin-bottom: 0;
+}
+
+/* Body */
+.project-details {
+  padding: 1.4rem 1.5rem;
+  background: #fff;
+  color: #111;
+}
+
+.project-details h4 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.project-details p {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  margin-bottom: 0.9rem;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+/* Tags */
+.project-tags {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.skill-tag {
+  font-size: 0.7rem;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 0.4rem;
+  padding: 0.3rem 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.project-actions {
+  margin-top: 1rem;
+}
+
+/* Buttons */
+.project-actions a {
+  text-decoration: none;
+}
+
+/* Hover effects */
+.project-actions .btn-primary:hover {
+  transform: translateY(-1px);
+}
+
+/* Dark mode */
+body.dark-mode .project-feature {
+  background: rgb(20, 20, 20);
+  color: #fff;
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.08);
+}
+
+body.dark-mode .project-details p {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+body.dark-mode .skill-tag {
+  background: rgba(255, 255, 255, 0.1);
 }
