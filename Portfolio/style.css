@@ -1584,6 +1584,11 @@ body.dark-mode .floating-label {
   background: #22c55e;
 }
 
+.contact-phone a {
+  text-decoration: none;
+  color: inherit;
+}
+
 /* Dark mode */
 body.dark-mode .contact-card {
   background: rgba(255,255,255,0.02);
@@ -1606,6 +1611,22 @@ body.dark-mode .contact-meta {
   .contact-card {
     padding: 1rem 1rem 1rem 0.85rem;
   }
+  
+  .hero-title-box {
+    width: 100%;
+    max-width: 18rem;          /* keep it inside the screen */
+    min-height: 3.2rem;        /* FIX: same height always */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-title {
+    font-size: 1.75rem;        /* smaller so it fits in one line */
+    line-height: 1;
+    white-space: nowrap;       /* don't let it wrap to 2 lines */
+  }
+
 }
 
 /* ------------------------------------------------------------- */
