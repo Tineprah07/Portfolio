@@ -443,11 +443,14 @@ body.dark-mode .social-icon::after {
 
   .about-content {
     grid-template-columns: 1fr;
+    /* NEW: Center the grid content horizontally */
+    justify-items: center; 
   }
   
   .about-text {
-    /* Kept left-aligned, as it's a multi-paragraph block */
-    text-align: left; 
+    /* CHANGE: Center text content in mobile view to match image */
+    text-align: center; 
+    max-width: 100%; /* Ensure it uses full width if needed */
   }
   
   .about-services {
