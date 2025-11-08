@@ -302,24 +302,3 @@ function isTouchDevice() {
          (navigator.msMaxTouchPoints > 0);
 }
 
-// Only enable the scroll observer on non-mobile devices
-if (!isTouchDevice()) {
-  const revealSections = document.querySelectorAll(".reveal, .timeline-item");
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("show");
-          // once shown, we can unobserve to avoid re-animating
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    {
-      threshold: 0.2,
-    }
-  );
-
-  revealSections.forEach((sec) => observer.observe(sec));
-}

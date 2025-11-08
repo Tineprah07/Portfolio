@@ -300,6 +300,11 @@ body.dark-mode #theme-icon {
   box-shadow: none;
   border: 1px solid rgba(16, 90, 228, 0.15);
   min-width: 19rem;
+
+  min-height: 3.2rem;    /* locks the box height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 
@@ -309,6 +314,9 @@ body.dark-mode #theme-icon {
   font-weight: 700;
   line-height: 1;
   transition: opacity 0.4s ease, transform 0.4s ease;
+
+  min-height: 3rem;      /* enough to fit the tallest line */
+  display: inline-block;
 }
 
 .hero-title.fade-out {
@@ -584,10 +592,18 @@ body.dark-mode .social-icon::after {
   /* Existing mobile styles */
   .hero-title-box {
     padding: 0.8rem 1.75rem;
+
+    min-height: 3.2rem;    /* locks the box height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .hero-title {
     font-size: 2.5rem;
+
+    min-height: 3rem;      /* enough to fit the tallest line */
+    display: inline-block;
   }
 
   .hero-actions {
