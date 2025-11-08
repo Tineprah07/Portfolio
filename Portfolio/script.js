@@ -1,7 +1,7 @@
 // ====== Dynamic title rotation ======
 const titles = [
+  "Software Engineer",
   "Web Developer",
-  "Software Developer",
   "Full-Stack Engineer"
 ];
 
