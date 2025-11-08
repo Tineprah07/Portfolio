@@ -302,3 +302,9 @@ function isTouchDevice() {
          (navigator.msMaxTouchPoints > 0);
 }
 
+// Only start title rotation if not mobile/touch device
+const isMobile = window.matchMedia("(max-width: 768px)").matches;
+
+if (!isMobile) {
+  setInterval(changeTitle, 3500);
+}
