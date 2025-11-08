@@ -255,59 +255,40 @@ filterButtons.forEach(btn => {
 });
 
 
-// ===== Contact Form Submission & Feedback (Updated message) =====
-const contactForm = document.getElementById('contact-form');
-const formMessage = document.getElementById('form-message');
+// ===== Contact Form Submission – mailto version =====
+const contactForm = document.getElementById("contact-form");
+const formMessage = document.getElementById("form-message");
 
 if (contactForm) {
-  contactForm.addEventListener('submit', async (e) => {
+  contactForm.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    formMessage.style.display = 'block';
-    formMessage.style.color = '#105be4';
-    formMessage.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Sending message...`;
+    const name = contactForm.querySelector('[name="name"]').value.trim();
+    const email = contactForm.querySelector('[name="email"]').value.trim();
+    const subject = contactForm.querySelector('[name="subject"]').value.trim();
+    const message = contactForm.querySelector('[name="message"]').value.trim();
 
-    const name = contactForm.querySelector('[name="name"]').value || "";
-    const email = contactForm.querySelector('[name="email"]').value || "";
-    const subject = contactForm.querySelector('[name="subject"]').value || "";
-    const message = contactForm.querySelector('[name="message"]').value || "";
+    // the email you want messages to go to
+    const toEmail = "gyamprahaugustine07@gmail.com";
 
-    try {
-      // NEW – use local server while developing
-      const response = await fetch('https://augustine-portfolio.onrender.com/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ name, email, subject, message }),
-      });
+    // build subject & body
+    const mailSubject = subject || "Portfolio Contact";
+    const mailBody =
+      `Name: ${name}\n` +
+      `Email: ${email}\n\n` +
+      `Message:\n${message}`;
 
-      // try to read JSON but don't crash if it's not JSON
-      let data = {};
-      try {
-        data = await response.json();
-      } catch (e) {
-        data = {};
-      }
+    const mailtoLink =
+      `mailto:${toEmail}?subject=${encodeURIComponent(mailSubject)}&body=${encodeURIComponent(mailBody)}`;
 
-      if (response.ok) {
-        formMessage.style.color = '#10B981';
-        formMessage.innerHTML = `<i class="fa-solid fa-circle-check"></i> Your message has been sent successfully. I'll get back to you ASAP!`;
-        contactForm.reset();
-
-        setTimeout(() => {
-          formMessage.style.display = 'none';
-        }, 8000);
-      } else {
-        formMessage.style.color = '#EF4444';
-        formMessage.innerHTML =
-          `<i class="fa-solid fa-triangle-exclamation"></i> ${data.error || "Something went wrong. Please try again."}`;
-      }
-    } catch (err) {
-      console.error(err);
-      formMessage.style.color = '#EF4444';
-      formMessage.innerHTML =
-        `<i class="fa-solid fa-triangle-exclamation"></i> Failed to send message. It may be a CORS or server issue.`;
+    // show small feedback (optional)
+    if (formMessage) {
+      formMessage.style.display = "block";
+      formMessage.style.color = "#105be4";
+      formMessage.innerHTML = `Opening your email app...`;
     }
+
+    // open user's email app
+    window.location.href = mailtoLink;
   });
 }
