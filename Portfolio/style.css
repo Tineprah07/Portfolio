@@ -302,6 +302,19 @@ body.dark-mode #theme-icon {
   min-width: 19rem;
 }
 
+/* stop hero from jumping on mobile when title changes */
+@media (max-width: 768px) {
+  .hero-title-box {
+    min-height: 3.4rem;        /* enough for the longest text */
+    padding: 0.75rem 1.6rem;    /* a bit smaller on mobile */
+  }
+
+  .hero-title {
+    font-size: 2.1rem;          /* smaller so it doesn’t wrap randomly */
+  }
+}
+
+
 .hero-title {
   font-size: clamp(2.8rem, 6vw, 3.5rem);
   font-weight: 700;
