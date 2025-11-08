@@ -1810,3 +1810,38 @@ body.dark-mode .project-details p {
 body.dark-mode .skill-tag {
   background: rgba(255, 255, 255, 0.1);
 }
+
+/* ===== PROJECTS — DARK MODE FIX ===== */
+body.dark-mode .project-feature {
+  background: #121212;              /* dark card */
+  border: 1px solid rgba(255,255,255,0.03);
+}
+
+body.dark-mode .project-details {
+  background: #121212;
+  color: #ffffff;
+}
+
+body.dark-mode .project-details p {
+  color: rgba(255,255,255,0.72);
+}
+
+body.dark-mode .project-tags .skill-tag {
+  background: rgba(255,255,255,0.06);
+  color: #fff;
+}
+
+body.dark-mode .project-tags .skill-tag i {
+  color: #fff;
+}
+
+body.dark-mode .project-actions .btn-primary {
+  background: #0d6efd;
+  color: #fff;
+}
+
+body.dark-mode .project-actions .btn-secondary {
+  background: #000;
+  color: #fff;
+}
+
