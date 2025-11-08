@@ -541,15 +541,15 @@ body.dark-mode .social-icon::after {
     width: 100%; 
     margin: 0.75rem auto 0;
     order: 3; /* Forces the navigation pill to the second line */
-    gap: 0.75rem; /* UPDATED: Tighter gap for small screen navigation */
-    padding: 0.5rem 0.5rem; /* UPDATED: Tighter padding */
+    gap: 0.75rem; /* Tighter gap for small screen navigation */
+    padding: 0.5rem 0.5rem; /* Tighter padding */
     flex-grow: 0;
-    flex-wrap: wrap; /* NEW: Allow links to wrap if necessary on extra small screens */
-    justify-content: space-around; /* NEW: Distribute space evenly */
+    flex-wrap: nowrap; /* Prevent links from wrapping, force fit (with smaller font) */
+    justify-content: space-around; /* Distribute space evenly */
   }
   
   .nav-link {
-    font-size: 0.8rem; /* UPDATED: Slightly smaller text for better fit */
+    font-size: 0.75rem; /* UPDATED: Smaller text for better fit on one line */
     padding: 0.3rem 0.1rem;
   }
 
