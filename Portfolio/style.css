@@ -425,7 +425,6 @@ body.dark-mode .social-icon::after {
   height: 1.1rem;
 }
 
-
 /* --- New Intermediate Breakpoint (950px max) --- */
 @media (max-width: 950px) {
   .page {
@@ -1618,5 +1617,33 @@ body.dark-mode .contact-meta {
   }
   body {
     cursor: auto !important;
+  }
+}
+
+/* ===== ABOUT SECTION — MOBILE LAYOUT ===== */
+@media (max-width: 768px) {
+  /* Force stacked layout on phone */
+  .about-content {
+    display: block !important;
+  }
+
+  /* Center and resize the photo */
+  .about-photo {
+    max-width: 13rem;
+    margin: 0 auto 1.5rem auto; /* center with space below */
+  }
+
+  .about-photo img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Make text fill the width cleanly */
+  .about-text {
+    text-align: left;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    padding: 0 0.5rem;
   }
 }
