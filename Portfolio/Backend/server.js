@@ -33,31 +33,22 @@ app.post("/contact", async (req, res) => {
     const { name, email, subject, message } = req.body;
 
     if (!name || !email || !message) {
-      return res
-        .status(400)
-        .json({ error: "Please fill all required fields." });
+      return res.status(400).json({ error: "Please fill all required fields." });
     }
 
-    // ---- Gmail-specific secure config ----
+    // simpler gmail transport
     const transporter = nodemailer.createTransport({
-      host: process.env.MAIL_HOST,     // smtp.gmail.com
-      port: Number(process.env.MAIL_PORT), // 465
-      secure: true,                    // always true for port 465
+      service: "gmail",
       auth: {
         user: process.env.MAIL_USER,
         pass: process.env.MAIL_PASS,
       },
     });
 
-    // Verify connection before sending (optional but helpful)
-    await transporter.verify();
-
     await transporter.sendMail({
       from: `"Portfolio Contact" <${process.env.MAIL_USER}>`,
-      to: "gyamprahaugustine07@gmail.com", // your inbox
-      subject: subject
-        ? `Portfolio: ${subject}`
-        : "New message from portfolio",
+      to: "gyamprahaugustine07@gmail.com",   // where you read messages
+      subject: subject ? `Portfolio: ${subject}` : "New message from portfolio",
       html: `
         <h2>New message from portfolio</h2>
         <p><strong>Name:</strong> ${name}</p>
@@ -68,7 +59,6 @@ app.post("/contact", async (req, res) => {
       `,
     });
 
-    console.log("✅ Email sent successfully");
     return res.json({ success: true, message: "Message sent ✅" });
   } catch (err) {
     console.error("Mail error:", err);
@@ -78,7 +68,6 @@ app.post("/contact", async (req, res) => {
     });
   }
 });
-
 
 // fallback for any other route
 app.get("*", (req, res) => {

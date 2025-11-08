@@ -267,13 +267,15 @@ if (contactForm) {
     formMessage.style.color = '#105be4';
     formMessage.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Sending message...`;
 
-    const name = contactForm.querySelector('[name="name"], [name="from_name"]')?.value || "";
-    const email = contactForm.querySelector('[name="email"], [name="reply_to"]')?.value || "";
-    const subject = contactForm.querySelector('[name="subject"]')?.value || "";
-    const message = contactForm.querySelector('[name="message"]')?.value || "";
+    const name = contactForm.querySelector('[name="name"]').value || "";
+    const email = contactForm.querySelector('[name="email"]').value || "";
+    const subject = contactForm.querySelector('[name="subject"]').value || "";
+    const message = contactForm.querySelector('[name="message"]').value || "";
 
     try {
-      const response = await fetch('https://augustine-portfolio.onrender.com/contact', {
+      // NEW – use local server while developing
+      const response = await fetch('http://localhost:4000/contact', {
+
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
