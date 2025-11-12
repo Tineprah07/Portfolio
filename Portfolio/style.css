@@ -1718,6 +1718,33 @@ body.dark-mode .contact-github:hover .contact-icon {
 .project-indigo .project-head { background-color: #2c5da0; color: #fff; }
 .project-orange .project-head { background-color: #ff7a1a; color: #fff; }
 .project-lightblue .project-head { background-color: #4989e0; color: #fff; }
+.project-red .project-head { background-color: #dc3545; color: #fff; }
+.project-purple .project-head { background-color: #6f42c1; color: #fff; }
+.project-yellow .project-head { background-color: #ffc107; color: #111; }
+.project-black .project-head { background-color: #111111; color: #fff; }
+.project-teal .project-head { background-color: #20c997; color: #fff; }
+.project-sky .project-head { background-color: #0dcaf0; color: #fff; }
+.project-pink .project-head { background-color: #e83e8c; color: #fff; }
+.project-brown .project-head { background-color: #795548; color: #fff; }
+
+/* 🌈 New dynamic tones */
+.project-lime .project-head { background-color: #a6d608; color: #111; }     /* energetic lime green */
+.project-cyan .project-head { background-color: #06b6d4; color: #fff; }     /* bright cyan */
+.project-magenta .project-head { background-color: #d63384; color: #fff; }  /* strong magenta */
+.project-gold .project-head { background-color: #f5b800; color: #111; }     /* elegant gold */
+.project-violet .project-head { background-color: #8b5cf6; color: #fff; }   /* vivid violet */
+.project-navy .project-head { background-color: #001f3f; color: #fff; }     /* deep navy */
+.project-emerald .project-head { background-color: #059669; color: #fff; }  /* balanced emerald green */
+.project-coral .project-head { background-color: #ff6f61; color: #fff; }    /* warm coral red */
+.project-silver .project-head { background-color: #adb5bd; color: #111; }   /* sleek silver/grey */
+.project-rose .project-head { background-color: #f472b6; color: #fff; }     /* modern rose pink */
+.project-ocean .project-head { background-color: #0277bd; color: #fff; }    /* cool ocean blue */
+.project-sunset .project-head { background-color: #ff7043; color: #fff; }   /* soft orange-red */
+.project-mint .project-head { background-color: #3eb489; color: #fff; }     /* calm mint green */
+.project-maroon .project-head { background-color: #800000; color: #fff; }   /* rich maroon */
+.project-steel .project-head { background-color: #4682b4; color: #fff; }    /* steel blue */
+.project-turquoise .project-head { background-color: #40e0d0; color: #111; }/* vibrant turquoise */
+
 
 /* Header box */
 .project-head {
