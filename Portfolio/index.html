@@ -6,16 +6,46 @@
     <meta name="format-detection" content="telephone=no">
     <title>Portfolio | Augustine Gyamprah</title>
     <link rel="icon" type="image/png" href="images/augustine.png" />
-    <!-- Links to external CSS and JS files remain as per the original structure -->
+    <!-- Apply saved theme before paint to avoid a flash -->
+    <script>
+      (function () {
+        document.documentElement.classList.add("js");
+        try {
+          if (localStorage.getItem("theme") === "dark") document.documentElement.classList.add("dark-mode");
+        } catch (e) {}
+      })();
+    </script>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 </head>
 <body>
 
-  <header class="topbar">
-    <h1 class="name-logo">AUGUSTINE<span class="dot">.</span></h1>
+  <!-- ================== LOADER ================== -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader-inner">
+      <p class="loader-name">
+        <span>A</span><span>U</span><span>G</span><span>U</span><span>S</span><span>T</span><span>I</span><span>N</span><span>E</span><span class="dot">.</span>
+      </p>
+      <div class="loader-bar"><span></span></div>
+    </div>
+  </div>
+
+  <!-- ================== ANIMATED BACKGROUND ================== -->
+  <div class="bg-layer" aria-hidden="true">
+    <div class="bg-glow" id="bg-glow"></div>
+    <div class="grid-overlay"></div>
+    <canvas id="bg-canvas"></canvas>
+    <div class="grain"></div>
+  </div>
+
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+
+  <header class="topbar" id="topbar">
+    <h1 class="name-logo"><a href="#home"><span class="logo-text" data-text="AUGUSTINE">AUGUSTINE</span><span class="dot">.</span></a></h1>
 
     <nav class="nav-pill" id="top-nav">
       <a href="#home" class="nav-link active">Home</a>
@@ -27,82 +57,112 @@
       <span class="nav-indicator" id="nav-indicator"></span>
     </nav>
 
-    <section class="mode-btn" id="mode-toggle" aria-label="Toggle theme">
-      <svg id="theme-icon" viewBox="0 0 24 24" width="24" height="24"></svg>
-    </section>
+    <div class="topbar-actions">
+      <button class="mode-btn magnetic" id="mode-toggle" type="button" aria-label="Toggle theme">
+        <svg id="theme-icon" viewBox="0 0 24 24" width="22" height="22"></svg>
+      </button>
+      <button class="menu-btn" id="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="top-nav">
+        <span></span><span></span>
+      </button>
+    </div>
   </header>
 
   <main>
     <!-- ================== HERO ================== -->
-    <section class="page" id="home">
+    <section class="page hero-page" id="home">
       <section class="hero">
-        <section class="hero-avatar">
-          <!-- Placeholder image URL - Replace with a real profile photo -->
-          <img src="images/augustine.png" alt="Augustine Somiah Gyamprah Profile" />
-        </section>
+        <div class="hero-text">
+          <h2 class="hero-hello reveal-up" style="--d: 0">
+            <span class="wave" aria-hidden="true">👋</span>
+            Hi! I'm <span class="gradient-text">Augustine Gyamprah</span>
+          </h2>
 
-        <!-- Updated Name -->
-        <h2>Hi! I'm Augustine Gyamprah</h2>
+          <section class="hero-title-box reveal-up" style="--d: 1">
+            <!-- Dynamic title managed by script.js -->
+            <h1 class="hero-title" id="dynamic-title">Web Developer</h1><span class="caret" aria-hidden="true"></span>
+          </section>
 
-        <section class="hero-title-box">
-          <!-- Dynamic title remains, managed by script.js -->
-          <h1 class="hero-title" id="dynamic-title">Web Developer</h1>
-        </section>
+          <p class="reveal-up" style="--d: 2">
+            First Class Software Engineering graduate from the University of Portsmouth with a passion for software development, technology, and business. I specialise in building modern web applications and enjoy solving complex real-world problems through innovative and user-focused solutions. With strong leadership, collaboration, and analytical skills, I am committed to delivering high-quality software and continuously expanding my technical expertise.
+          </p>
 
-        <p>
-          First Class Software Engineering graduate from the University of Portsmouth with a passion for software development, technology, and business. I specialise in building modern web applications and enjoy solving complex real-world problems through innovative and user-focused solutions. With strong leadership, collaboration, and analytical skills, I am committed to delivering high-quality software and continuously expanding my technical expertise.
-        </p>
+          <section class="hero-actions reveal-up" style="--d: 3">
+              <a href="#contact" class="btn-primary magnetic">
+                  <span>Contact Me</span>
+                  <i class="fa-solid fa-paper-plane"></i>
+              </a>
+              <a href="pdf/Augustine_Gyamprah_CV.pdf" class="btn-secondary magnetic" download>
+                  <span>Resume (PDF)</span>
+                  <i class="fa-solid fa-arrow-down"></i>
+              </a>
+          </section>
 
-        <section class="hero-socials" aria-label="Social media links">
-          <!-- GitHub Link from CV -->
-          <a href="https://github.com/Tineprah07" class="social-icon" aria-label="GitHub" target="_blank">
-            <i class="fa-brands fa-github"></i>
-          </a>
-          <!-- WhatsApp Link from CV Phone Number -->
-          <a href="https://wa.me/447551577816" class="social-icon" aria-label="WhatsApp" target="_blank">
-            <i class="fa-brands fa-whatsapp"></i>
-          </a>
-          <!-- LinkedIn Link from CV -->
-          <a href="https://www.linkedin.com/in/augustine-gyamprah-7a26702b5/" class="social-icon" aria-label="LinkedIn" target="_blank">
-            <i class="fa-brands fa-linkedin-in"></i>
-          </a>
-        </section>
-
-        <section class="hero-actions">
-            <a href="#contact" class="btn-primary">
-                Contact Me
-                <svg viewBox="0 0 20 20" class="btn-icon">
-                <path d="M2 4h16v12H2V4zm1.5 1.5v.3L10 11l6.5-5.2v-.3h-13z" fill="white"/>
-                </svg>
+          <section class="hero-socials reveal-up" style="--d: 4" aria-label="Social media links">
+            <a href="https://github.com/Tineprah07" class="social-icon magnetic" aria-label="GitHub" target="_blank">
+              <i class="fa-brands fa-github"></i>
             </a>
-            <a href="pdf/Augustine_Gyamprah_CV.pdf" class="btn-secondary" download>
-                Resume (PDF)
-                <svg viewBox="0 0 20 20" class="btn-icon-secondary">
-                    <path d="M10 3v9.2l3-3 .9 1L10 15 6.1 10.2l.9-1 3 3V3h1z" fill="#000"/>
-                    <path d="M4 16h12v1H4z" fill="#000"/>
-                </svg>
+            <a href="https://wa.me/447551577816" class="social-icon magnetic" aria-label="WhatsApp" target="_blank">
+              <i class="fa-brands fa-whatsapp"></i>
             </a>
+            <a href="https://www.linkedin.com/in/augustine-gyamprah-7a26702b5/" class="social-icon magnetic" aria-label="LinkedIn" target="_blank">
+              <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+          </section>
+        </div>
 
-        </section>
+        <div class="hero-visual reveal-up" style="--d: 1">
+          <div class="avatar-ring" aria-hidden="true"></div>
+          <section class="hero-avatar">
+            <img src="images/augustine.png" alt="Augustine Somiah Gyamprah Profile" />
+          </section>
+          <div class="orbit" aria-hidden="true">
+            <span class="orbit-icon" style="--i: 0"><i class="fa-brands fa-js"></i></span>
+            <span class="orbit-icon" style="--i: 1"><i class="fa-brands fa-python"></i></span>
+            <span class="orbit-icon" style="--i: 2"><i class="fa-brands fa-node-js"></i></span>
+            <span class="orbit-icon" style="--i: 3"><i class="fa-solid fa-database"></i></span>
+            <span class="orbit-icon" style="--i: 4"><i class="fa-brands fa-html5"></i></span>
+            <span class="orbit-icon" style="--i: 5"><i class="fa-brands fa-css3-alt"></i></span>
+          </div>
+        </div>
       </section>
+
+      <a href="#about" class="scroll-hint" aria-label="Scroll to About">
+        <span class="mouse"><span class="wheel"></span></span>
+      </a>
     </section>
+
+    <!-- ================== MARQUEE ================== -->
+    <div class="marquee-wrap" aria-hidden="true">
+    <div class="marquee marquee-alt">
+      <div class="marquee-track">
+        <span>Software Engineer</span><i>✦</i><span>Web Developer</span><i>✦</i><span>Full-Stack Engineer</span><i>✦</i><span>Software Engineer</span><i>✦</i><span>Web Developer</span><i>✦</i><span>Full-Stack Engineer</span><i>✦</i>
+        <span>Software Engineer</span><i>✦</i><span>Web Developer</span><i>✦</i><span>Full-Stack Engineer</span><i>✦</i><span>Software Engineer</span><i>✦</i><span>Web Developer</span><i>✦</i><span>Full-Stack Engineer</span><i>✦</i>
+      </div>
+    </div>
+    <div class="marquee">
+      <div class="marquee-track">
+        <span>Python</span><i>✦</i><span>JavaScript</span><i>✦</i><span>Node / Express</span><i>✦</i><span>PostgreSQL</span><i>✦</i><span>SQL</span><i>✦</i><span>OAuth 2.0</span><i>✦</i><span>HTML</span><i>✦</i><span>CSS</span><i>✦</i><span>UI/UX Design</span><i>✦</i><span>Full-Stack Web</span><i>✦</i>
+        <span>Python</span><i>✦</i><span>JavaScript</span><i>✦</i><span>Node / Express</span><i>✦</i><span>PostgreSQL</span><i>✦</i><span>SQL</span><i>✦</i><span>OAuth 2.0</span><i>✦</i><span>HTML</span><i>✦</i><span>CSS</span><i>✦</i><span>UI/UX Design</span><i>✦</i><span>Full-Stack Web</span><i>✦</i>
+      </div>
+    </div>
+    </div>
 
     <!-- ================== ABOUT ================== -->
     <section class="page" id="about">
-      <section class="section about-section reveal">
-        <p class="section-kicker">Introduction</p>
-        <h2 class="section-title about-title">About me</h2>
+      <section class="section about-section" data-bg="ABOUT">
+        <p class="section-kicker reveal" data-index="01">Introduction</p>
+        <h2 class="section-title about-title split-words">About me</h2>
 
         <section class="about-content">
-          <figure class="about-photo">
-            <!-- Placeholder image URL - Replace with a real profile photo -->
+          <figure class="about-photo reveal tilt">
             <img src="images/augu.png" alt="Augustine Somiah Gyamprah">
+            <span class="photo-glow" aria-hidden="true"></span>
           </figure>
 
-          <article class="about-text">
-            <!-- Updated Profile Summary from CV -->
+          <article class="about-text reveal">
             <p>
-                A highly motivated and results-driven Software Engineering graduate from the University of Portsmouth, passionate about developing innovative, efficient, and user-centred software solutions. My academic journey reflects consistent excellence, achieving First-Class results and demonstrating proven leadership in every group project.            </p>
+                A highly motivated and results-driven Software Engineering graduate from the University of Portsmouth, passionate about developing innovative, efficient, and user-centred software solutions. My academic journey reflects consistent excellence, achieving First-Class results and demonstrating proven leadership in every group project.
+            </p>
             <p>
                 I am skilled in full-stack development, database design, and usability engineering, combining technical expertise with creativity and strategic thinking. Alongside my technical interests, I have a strong enthusiasm for business and innovation, driven by a desire to understand how technology can create real value and transform organisations.
             </p>
@@ -112,9 +172,8 @@
           </article>
         </section>
 
-        <!-- Services section updated to match CV key skills -->
         <section class="about-services">
-            <article class="about-service-card reveal" data-reveal-order="1">
+            <article class="about-service-card spotlight reveal" style="--d: 0">
                 <section class="icon-circle">
                 <i class="fa-solid fa-code"></i>
                 </section>
@@ -124,7 +183,7 @@
                 </section>
             </article>
 
-            <article class="about-service-card reveal" data-reveal-order="2">
+            <article class="about-service-card spotlight reveal" style="--d: 1">
                 <section class="icon-circle">
                 <i class="fa-solid fa-database"></i>
                 </section>
@@ -134,7 +193,7 @@
                 </section>
             </article>
 
-            <article class="about-service-card reveal" data-reveal-order="3">
+            <article class="about-service-card spotlight reveal" style="--d: 2">
                 <section class="icon-circle">
                 <i class="fa-solid fa-users-line"></i>
                 </section>
@@ -154,8 +213,7 @@
                 </section>
             </article> -->
 
-            <!-- 5. Business & Innovation -->
-            <article class="about-service-card reveal" data-reveal-order="5">
+            <article class="about-service-card spotlight reveal" style="--d: 0">
             <section class="icon-circle">
                 <i class="fa-solid fa-briefcase"></i>
             </section>
@@ -165,8 +223,7 @@
             </section>
             </article>
 
-            <!-- 6. Digital Media & Editing -->
-            <article class="about-service-card reveal" data-reveal-order="6">
+            <article class="about-service-card spotlight reveal" style="--d: 1">
             <section class="icon-circle">
                 <i class="fa-solid fa-wand-magic-sparkles"></i>
             </section>
@@ -176,8 +233,7 @@
             </section>
             </article>
 
-            <!-- 7. UI/UX Design -->
-            <article class="about-service-card reveal" data-reveal-order="7">
+            <article class="about-service-card spotlight reveal" style="--d: 2">
             <section class="icon-circle">
                 <i class="fa-solid fa-pen-ruler"></i>
             </section>
@@ -191,20 +247,22 @@
       </section>
     </section>
 
+    <!-- ================== SKILLS ================== -->
     <section class="page" id="skills">
-      <section class="section skills-section reveal">
-        <p class="section-kicker">My Tools</p>
-        <h2 class="section-title skills-title">Technical & Transferable Skills</h2>
+      <section class="section skills-section" data-bg="SKILLS">
+        <p class="section-kicker reveal" data-index="02">My Tools</p>
+        <h2 class="section-title skills-title split-words">Technical & Transferable Skills</h2>
 
-        <div class="skill-filters">
+        <div class="skill-filters reveal" id="skill-filters">
+          <span class="filter-indicator" id="filter-indicator" aria-hidden="true"></span>
           <button class="btn-filter active-filter" data-category="all">All Skills</button>
           <button class="btn-filter" data-category="programming">Programming & DB</button>
           <button class="btn-filter" data-category="soft">Soft & Transferable</button>
         </div>
 
         <section class="skills-grid">
-          <!-- Programming & Database Skills (based strictly on CV) -->
-          <article class="skill-category" data-category="programming">
+          <article class="skill-category spotlight reveal" data-category="programming" style="--d: 0">
+            <span class="skill-cat-icon" aria-hidden="true"><i class="fa-solid fa-terminal"></i></span>
             <h3>Programming Languages & DB</h3>
             <div class="skill-list">
               <span class="skill-tag" data-filter="programming"><i class="fa-brands fa-python"></i> Python</span>
@@ -218,8 +276,8 @@
             </div>
           </article>
 
-          <!-- Soft & Transferable Skills (based strictly on CV) -->
-          <article class="skill-category" data-category="soft">
+          <article class="skill-category spotlight reveal" data-category="soft" style="--d: 1">
+            <span class="skill-cat-icon" aria-hidden="true"><i class="fa-solid fa-seedling"></i></span>
             <h3>Soft & Transferable Skills</h3>
             <div class="skill-list">
               <span class="skill-tag" data-filter="soft"><i class="fa-solid fa-lightbulb"></i> Problem Solving</span>
@@ -231,8 +289,8 @@
             </div>
           </article>
 
-          <!-- Hobbies section to match the 3-column grid structure -->
-          <article class="skill-category" data-category="soft">
+          <article class="skill-category spotlight reveal" data-category="soft" style="--d: 2">
+            <span class="skill-cat-icon" aria-hidden="true"><i class="fa-solid fa-heart"></i></span>
             <h3>Hobbies & Interests</h3>
             <div class="skill-list">
               <span class="skill-tag"><i class="fa-solid fa-book-open"></i> Reading</span>
@@ -246,15 +304,18 @@
       </section>
     </section>
 
+    <!-- ================== EXPERIENCE ================== -->
     <section class="page" id="experience">
-      <section class="section experience-section reveal">
-        <p class="section-kicker">Journey</p>
-        <h2 class="section-title experience-title">Work & Education Timeline</h2>
+      <section class="section experience-section" data-bg="JOURNEY">
+        <p class="section-kicker reveal" data-index="03">Journey</p>
+        <h2 class="section-title experience-title split-words">Work & Education Timeline</h2>
 
-        <section class="timeline">
-          <!-- Item 1: Education (Right) - BSc Software Engineering -->
-          <article class="timeline-item right reveal">
-            <div class="timeline-content">
+        <section class="timeline" id="timeline">
+          <span class="timeline-line" aria-hidden="true"><span class="timeline-progress" id="timeline-progress"></span></span>
+
+          <article class="timeline-item right">
+            <div class="timeline-content spotlight">
+              <span class="timeline-icon" aria-hidden="true"><i class="fa-solid fa-graduation-cap"></i></span>
               <span class="timeline-date">SEP 2022 - JULY 2026</span>
               <h4>BSc (Hons) Software Engineering</h4>
               <p>
@@ -263,10 +324,10 @@
             </div>
             <div class="timeline-marker"></div>
           </article>
-          
-          <!-- Item 4: Education (Left) - ICP Foundation Degree -->
-          <article class="timeline-item left reveal">
-            <div class="timeline-content">
+
+          <article class="timeline-item left">
+            <div class="timeline-content spotlight">
+              <span class="timeline-icon" aria-hidden="true"><i class="fa-solid fa-school"></i></span>
               <span class="timeline-date">JAN 2023 - AUG 2023</span>
               <h4>Foundation Degree in Science: Computing</h4>
               <p>
@@ -276,9 +337,9 @@
             <div class="timeline-marker"></div>
           </article>
 
-          <!-- Item 7: Work Experience (Right) - M. Gyamprah Enterprise -->
-          <article class="timeline-item right reveal">
-            <div class="timeline-content">
+          <article class="timeline-item right">
+            <div class="timeline-content spotlight">
+              <span class="timeline-icon" aria-hidden="true"><i class="fa-solid fa-briefcase"></i></span>
               <span class="timeline-date">FEB 2022 - DEC 2022</span>
               <h4>M. Gyamprah Enterprise, Ghana</h4>
               <p>
@@ -287,10 +348,10 @@
             </div>
             <div class="timeline-marker"></div>
           </article>
-          
-          <!-- Item 6: Education (Left) - Kharkiv National Medical University -->
-          <article class="timeline-item left reveal">
-            <div class="timeline-content">
+
+          <article class="timeline-item left">
+            <div class="timeline-content spotlight">
+              <span class="timeline-icon" aria-hidden="true"><i class="fa-solid fa-stethoscope"></i></span>
               <span class="timeline-date">DEC 2019 - FEB 2022</span>
               <h4>Medical Studies</h4>
               <p>
@@ -299,14 +360,14 @@
             </div>
             <div class="timeline-marker"></div>
           </article>
-          
-          <!-- Item 8: Education (Left) - Prempeh College -->
-          <article class="timeline-item right reveal">
-            <div class="timeline-content">
+
+          <article class="timeline-item right">
+            <div class="timeline-content spotlight">
+              <span class="timeline-icon" aria-hidden="true"><i class="fa-solid fa-book"></i></span>
               <span class="timeline-date">OCT 2016 - JUN 2019</span>
               <h4>High School Certificate</h4>
                 <p>
-                    Prempeh College. Completed high school studies prior to starting university.              
+                    Prempeh College. Completed high school studies prior to starting university.
                 </p>
             </div>
             <div class="timeline-marker"></div>
@@ -316,19 +377,21 @@
       </section>
     </section>
 
+    <!-- ================== PROJECTS ================== -->
     <section class="page" id="projects">
-      <section class="section projects-section reveal">
-        <p class="section-kicker">My Work</p>
-        <h2 class="section-title projects-title">Featured Projects & Contributions</h2>
+      <section class="section projects-section" data-bg="WORK">
+        <p class="section-kicker reveal" data-index="04">My Work</p>
+        <h2 class="section-title projects-title split-words">Featured Projects & Contributions</h2>
 
         <section class="projects-grid">
 
             <!-- UniStress: Dissertation flagship -->
-            <article class="project-card project-feature project-teal reveal" data-reveal-order="0">
+            <article class="project-card project-feature project-flagship project-teal reveal tilt" style="--d: 0">
                 <header class="project-head">
                     <div class="project-badges">
                         <span class="badge">Completed</span>
                     </div>
+                    <span class="project-num" aria-hidden="true">01</span>
                     <i class="fa-solid fa-brain project-icon"></i>
                     <h3 class="project-title-top">UniStress</h3>
                     <p class="project-sub">Full-Stack Wellbeing Platform</p>
@@ -360,12 +423,12 @@
                 </section>
             </article>
 
-            <!-- Project 3 -->
-            <article class="project-card project-feature project-indigo reveal" data-reveal-order="3">
+            <article class="project-card project-feature project-indigo reveal tilt" style="--d: 0">
                 <header class="project-head">
                     <div class="project-badges">
                         <span class="badge">Completed</span>
                     </div>
+                    <span class="project-num" aria-hidden="true">02</span>
                     <i class="fa-solid fa-heart-pulse project-icon"></i>
                     <h3 class="project-title-top">FitMind Tracker</h3>
                     <p class="project-sub">Wellness App</p>
@@ -393,12 +456,12 @@
                 </section>
             </article>
 
-            <!-- Project 2 -->
-            <article class="project-card project-feature project-green reveal" data-reveal-order="2">
+            <article class="project-card project-feature project-green reveal tilt" style="--d: 1">
                 <header class="project-head">
                     <div class="project-badges">
                         <span class="badge">Completed</span>
                     </div>
+                    <span class="project-num" aria-hidden="true">03</span>
                     <i class="fa-solid fa-code project-icon"></i>
                     <h3 class="project-title-top">Race Timer</h3>
                     <p class="project-sub">Full-Stack</p>
@@ -425,12 +488,12 @@
                 </section>
             </article>
 
-            <!-- Project 4 -->
-            <article class="project-card project-feature project-orange reveal" data-reveal-order="4">
+            <article class="project-card project-feature project-orange reveal tilt" style="--d: 2">
                 <header class="project-head">
                     <div class="project-badges">
                         <span class="badge">Completed</span>
                     </div>
+                    <span class="project-num" aria-hidden="true">04</span>
                     <i class="fa-solid fa-cart-shopping project-icon"></i>
                     <h3 class="project-title-top">ELE Project</h3>
                     <p class="project-sub">Frontend</p>
@@ -456,12 +519,12 @@
                 </section>
             </article>
 
-            <!-- Project 5 -->
-            <article class="project-card project-feature project-lightblue reveal" data-reveal-order="5">
+            <article class="project-card project-feature project-lightblue reveal tilt" style="--d: 0">
                 <header class="project-head">
                     <div class="project-badges">
                         <span class="badge">Completed</span>
                     </div>
+                    <span class="project-num" aria-hidden="true">05</span>
                     <i class="fa-solid fa-database project-icon"></i>
                     <h3 class="project-title-top">PostgreSQL Database Schema</h3>
                     <p class="project-sub">Database</p>
@@ -489,11 +552,12 @@
                 </section>
             </article>
 
-            <!-- Project X: Practical Data Analytics & Mining -->
-                <article class="project-card project-feature project-violet reveal" data-reveal-order="7">              <header class="project-head">
+            <article class="project-card project-feature project-violet reveal tilt" style="--d: 1">
+              <header class="project-head">
                 <div class="project-badges">
                   <span class="badge">Completed</span>
                 </div>
+                <span class="project-num" aria-hidden="true">06</span>
                 <i class="fa-solid fa-chart-line project-icon"></i>
                 <h3 class="project-title-top">Practical Data Analytics & Mining</h3>
                 <p class="project-sub">Data Science</p>
@@ -514,11 +578,9 @@
                 </div>
 
                 <div class="project-actions">
-                  <!-- Replace with your repo link -->
                   <a href="https://github.com/Tineprah07/Practical-Data-Analytics-and-Mining-CW/blob/main/cw.py" class="btn-primary" target="_blank">
                     <i class="fa-brands fa-github"></i> View Code
                   </a>
-                  <!-- Place your PDF at /pdf/PDA_Report.pdf or change the href -->
                   <a href="https://github.com/Tineprah07/Practical-Data-Analytics-and-Mining-CW/blob/main/CW%20-%20Practical%20Data%20Analytics%20and%20Mining.pdf" class="btn-secondary" target="_blank">
                     <i class="fa-solid fa-file-lines"></i> View PDF
                   </a>
@@ -526,12 +588,12 @@
               </section>
             </article>
 
-            <!-- Project 1 -->
-            <article class="project-card project-feature project-blue reveal" data-reveal-order="1">
+            <article class="project-card project-feature project-blue reveal tilt" style="--d: 2">
                 <header class="project-head">
                     <div class="project-badges">
-                        <span class="badge">Not Completed</span>
+                        <span class="badge badge-wip">Not Completed</span>
                     </div>
+                    <span class="project-num" aria-hidden="true">07</span>
                     <i class="fa-solid fa-laptop-code project-icon"></i>
                     <h3 class="project-title-top">M-GYAMPRAH Enterprise Web</h3>
                 <p class="project-sub">Web Development</p>
@@ -558,21 +620,21 @@
 
         </section>
 
-
       </section>
     </section>
 
+    <!-- ================== CONTACT ================== -->
     <section class="page" id="contact">
-      <section class="section contact-section reveal">
-        <p class="section-kicker">Get in touch</p>
-        <h2 class="section-title contact-title">Let's build something great.</h2>
+      <section class="section contact-section" data-bg="HELLO">
+        <p class="section-kicker reveal" data-index="05">Get in touch</p>
+        <h2 class="section-title contact-title split-words">Let's build something great.</h2>
 
         <section class="contact-container">
-          
+
           <!-- <article class="contact-form-area reveal">
             <h3>Send a Message</h3>
             <form id="contact-form" action="#" method="POST">
-              
+
               <div class="input-group">
                 <input type="text" id="name" name="name" class="input-field" placeholder=" " required>
                 <label for="name" class="floating-label">Your Name</label>
@@ -592,7 +654,7 @@
                 <textarea id="message" name="message" class="input-field" placeholder=" " rows="4" required></textarea>
                 <label for="message" class="floating-label">Tell me about your project...</label>
               </div>
-              
+
                 <section class="contact-form-actions">
                     <button type="submit" class="btn-primary contact-submit">
                         <i class="fa-solid fa-paper-plane"></i>
@@ -604,10 +666,9 @@
               <div id="form-message" class="form-message" style="margin-top: 1rem; color: #105be4; display: none;"></div>
             </form>
           </article> -->
-          
+
             <section class="contact-info-area">
-                <!-- Updated Email Card -->
-                <article class="contact-card contact-mail">
+                <article class="contact-card contact-mail spotlight reveal" style="--d: 0">
                     <section class="contact-icon">
                     <i class="fa-solid fa-envelope"></i>
                     </section>
@@ -620,8 +681,7 @@
                     </section>
                 </article>
 
-                <!-- Updated LinkedIn Card -->
-                <article class="contact-card contact-linkedin">
+                <article class="contact-card contact-linkedin spotlight reveal" style="--d: 1">
                     <section class="contact-icon">
                     <i class="fa-brands fa-linkedin-in"></i>
                     </section>
@@ -634,8 +694,7 @@
                     </section>
                 </article>
 
-                <!-- GitHub -->
-                <article class="contact-card contact-github">
+                <article class="contact-card contact-github spotlight reveal" style="--d: 0">
                     <section class="contact-icon">
                     <i class="fa-brands fa-github"></i>
                     </section>
@@ -648,8 +707,7 @@
                     </section>
                 </article>
 
-                <!-- Updated Phone Card -->
-                <article class="contact-card contact-phone">
+                <article class="contact-card contact-phone spotlight reveal" style="--d: 1">
                     <section class="contact-icon">
                     <i class="fa-solid fa-phone"></i>
                     </section>
@@ -667,13 +725,15 @@
       </section>
     </section>
 
-    <footer class="page footer-section" style="text-align: center; margin-top: 0; padding-top: 0; font-size: 0.85rem; color: var(--muted);">
+    <footer class="page footer-section">
+      <div class="footer-big" id="footer-big" aria-hidden="true">AUGUSTINE.</div>
       <p>&copy; 2025 Augustine. Built with passion and code. All Rights Reserved.</p>
+      <a href="#home" class="back-to-top magnetic" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></a>
     </footer>
   </main>
 
-  <section class="cursor-dot"></section>
-  <section class="cursor-outline"></section>
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-outline" aria-hidden="true"></div>
 
   <script src="script.js"></script>
 </body>
