@@ -594,6 +594,21 @@ if (footerBig) {
   });
 }
 
+// ===== Copy email button =====
+document.querySelectorAll(".contact-copy").forEach((btn) => {
+  const original = btn.innerHTML;
+  btn.addEventListener("click", async () => {
+    const text = btn.dataset.copy;
+    try {
+      await navigator.clipboard.writeText(text);
+      btn.innerHTML = 'Copied! <i class="fa-solid fa-check"></i>';
+    } catch {
+      window.prompt("Copy my email:", text);
+    }
+    setTimeout(() => (btn.innerHTML = original), 2000);
+  });
+});
+
 // ===== Contact Form Submission – mailto version (form is currently commented out in HTML) =====
 const contactForm = document.getElementById("contact-form");
 const formMessage = document.getElementById("form-message");
